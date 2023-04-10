@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block Title %}Perfil{% endblock Title %}
+{% block TituloPagina %}<h1>Perfil</h1>{% endblock TituloPagina %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <form action="" method="post">
+                {% csrf_token %}
+                <h2>{{usuario_logado.first_name}} {{usuario_logado.last_name}}</h2>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <label class="label" for="cpf">
+                            CPF
+                        </label>
+                        <input type="text" class="form-control" name="cpf" value="{{ usuario_logado.cpf }}">
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <label class="label" for="email">E-mail</label>
+                        <input type="text" class="form-control" name="email" value="{{ usuario_logado.email }}">
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="form-group">
+                          <label for="cep">CEP</label>
+                          <input type="text" class="form-control" name="cep" id="cep" value="{{ usuario_logado.cep }}">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Atualizar Cadastro</button>
+                <p style="color: green;">{{ msg_success }}</p>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content %}

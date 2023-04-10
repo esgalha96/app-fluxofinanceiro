@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block Title %}Cadastro{% endblock Title %}
+{% block TituloPagina %}<h1>Cadastre-se</h1>{% endblock TituloPagina %}
+
+{% block content %}
+
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    <div>
+      <button class="btn btn-primary" type="submit">Registrar</button>
+    </div>
+    
+  </form>
+{% endblock %}

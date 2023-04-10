@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block Title %}Entrada{% endblock Title %}
+{% block TituloPagina %}<h1>Entrada</h1>{% endblock TituloPagina %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Entrada</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id_entrada" value="{{id_entrada}}">
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
+
+{% endblock content %}

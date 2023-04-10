@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block Title %}Entradas{% endblock Title %}
+{% block TituloPagina %}<h1>Entradas</h1>{% endblock TituloPagina %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Entradas</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entrada in entradas_usuario %}
+            <tr class="">
+                <td scope="row">{{entrada.categoria.categoria}}</td>
+                <td>{{entrada.descricao}}</td>
+                <td>{{entrada.data}}</td>
+                <td>{{entrada.valor}}</td>
+                <td>
+                    <a style="padding: 5px;" class="btn btn-warning" href="{% url 'entradas_edit' entrada.id %}" role="button"><span class="material-icons">edit</span></a>
+                    <a style="padding: 5px;" class="btn btn-danger" onclick="return confirm('Deseja deletar registro?')" href="{% url 'entradas_delete' entrada.id %}" role="button"><span class="material-icons">close</span></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <a class="btn btn-primary" href="{% url 'entradas_add' %}" role="button">Adicionar</a>
+    </div>
+</div>
+
+{% endblock content %}

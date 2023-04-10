@@ -1,0 +1,78 @@
+#cabecalho {
+    background-color: #292c3d;
+    color: #f8c000;
+    height: 2%;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+   
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  #rodape {
+    background-color: #292c3d;
+    color: #f8c000;
+    height: 5%;
+   
+    padding: 10px;
+    position: absolute ;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .wrapper{
+    min-height: 100%;
+    position: relative;
+  }
+
+  #conteudo {
+    padding-top: 20px;
+  }
+
+  .container{
+    padding-bottom: 60px;
+  }
+
+  .navbar-nav .nav-item.dropdown .dropdown-menu {
+    border-radius: 0;
+  }
+
+  .navbar-nav .nav-item.dropdown .dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 12px
+  }
+
+  .row{
+    padding-bottom: 10px;
+  }
+
+  .btn-font-red{
+    color: red;
+  }
+
+  .btn-font-green{
+    color: green;
+  }
+
+  .btn-font-yellow{
+    color: #f8c000;
+  }
+
+  .btn-small{
+    padding: 0px;
+  }
+
+  .disabled{
+    background-color: #e9ecef;
+    opacity: 1;
+  }
+
+  .btn-circle{
+    border-radius: 50%;
+  }

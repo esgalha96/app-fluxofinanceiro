@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block Title %}Categorias{% endblock Title %}
+{% block TituloPagina %}<h1>Adicionar Categoria</h1>{% endblock TituloPagina %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Categoria</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-success">Salvar</button>
+</form>
+
+
+{% endblock content %}

@@ -9,7 +9,7 @@ class Categoria(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return "Usuário: {} | Categoria: {}".format(self.usuario, self.categoria)
+        return "Categoria: {}".format(self.categoria)
 
 class Saidas(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)

@@ -27,7 +27,7 @@
             {% for entrada in entradas_usuario %}
             <tr class="">
                 <td scope="row">{{entrada.categoria.categoria}}</td>
-                <td>{{entrada.descricao}}</td>
+                <td>{% if entrada.descricao %}{{entrada.descricao}}{% endif %}</td>
                 <td>{{entrada.data}}</td>
                 <td>{{entrada.valor}}</td>
                 <td>

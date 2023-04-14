@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractBaseUser, BaseUserManager
+from .validators import validate_cpf
 
 class UsuarioManager(BaseUserManager):
     def create_user(self, username, email,password=None, cpf=None, phone=None, cep=None):
@@ -36,7 +37,7 @@ class Usuario(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True, verbose_name="E-mail")
     first_name = models.CharField(max_length=50, blank=True, null=True, verbose_name="Nome")
     last_name = models.CharField(max_length=50, blank=True, null=True, verbose_name="Sobrenome")
-    cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF")
+    cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF", validators=[validate_cpf])
     phone = models.CharField(max_length=11, blank=True, null=True, verbose_name="Telefone")
     cep = models.CharField(max_length=15, blank=False, null=False, verbose_name="CEP")
     is_active = models.BooleanField(default=True, verbose_name="Ativo")

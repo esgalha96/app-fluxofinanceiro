@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block Title %}Integração{% endblock Title %}
+{% block TituloPagina %}<h1>Integração</h1>{% endblock TituloPagina %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Integração</h2>
+<a class="btn btn-primary" href="{% url 'download_file' %}">Baixar arquivo base</a>
+<br>
+<br>
+<form action="{% url 'integracao_process' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="" class="form-label">Selecione o arquivo</label>
+      <input type="file" class="form-control" name="arquivo" id="" placeholder="Escolher arquivo" aria-describedby="fileHelpId">
+      <div id="fileHelpId" class="form-text">Arquivo baseado no arquivo base</div>
+    </div>
+    <button type="submit" class="btn btn-success" >Processar</button>
+</form>
+
+
+{% endblock content %}

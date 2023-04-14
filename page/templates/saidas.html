@@ -27,7 +27,7 @@
             {% for saida in saidas_usuario %}
             <tr class="">
                 <td scope="row">{{saida.categoria.categoria}}</td>
-                <td>{{saida.descricao}}</td>
+                <td>{% if saida.descricao %}{{saida.descricao}}{% endif %}</td>
                 <td>{{saida.data}}</td>
                 <td>{{saida.valor}}</td>
                 <td>

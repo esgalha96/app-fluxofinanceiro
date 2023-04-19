@@ -7,4 +7,5 @@ urlpatterns = [
     path('acesso/', include('acesso.urls')),
     path('', include('page.urls')),
     path('integracao/', include('integracao.urls')),
+    path('reports/', include('reports.urls')),
 ]

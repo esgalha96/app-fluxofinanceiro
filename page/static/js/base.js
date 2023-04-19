@@ -102,3 +102,49 @@ RenderizarGraficoFluxoCaixa = function(url){
     });
     });
 }
+
+RenderizarGraficoSaidasCategoria = function(url){
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+    
+        console.log(data.valores.saidas)
+        console.log(data.labels)
+
+        var ctx = document.getElementById('GraficoSaidasCategoria').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: data.labels,
+            datasets: [{
+                    label:"Saídas",
+                    data: data.valores.saidas,
+                    hoverOffset: 4
+                }],
+            },
+        });
+    });
+}
+
+RenderizarGraficoEntradasCategoria = function(url){
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+    
+        console.log(data.valores.entradas)
+        console.log(data.labels)
+
+        var ctx = document.getElementById('GraficoEntradasCategoria').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: data.labels,
+            datasets: [{
+                    label:"Entradas",
+                    data: data.valores.entradas,
+                    hoverOffset: 4
+                }],
+            },
+        });
+    });
+}

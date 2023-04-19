@@ -19,6 +19,7 @@ urlpatterns = [
     path('dados_dashboard_saidas/', views.dados_dashboard_saidas, name="dados_dashboard_saidas"),
     path('dados_dashboard_entradas/', views.dados_dashboard_entradas, name="dados_dashboard_entradas"),
     path('dados_dashboard_fluxo_caixa/', views.dados_dashboard_fluxo_caixa, name="dados_dashboard_fluxo_caixa"),
-
+    path('dados_dashboard_entradas_categoria/', views.dados_dashboard_entradas_categoria, name="dados_dashboard_entradas_categoria"),
+    path('dados_dashboard_saidas_categoria/', views.dados_dashboard_saidas_categoria, name="dados_dashboard_saidas_categoria"),
 
 ]

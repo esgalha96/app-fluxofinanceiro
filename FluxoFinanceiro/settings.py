@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'page',
     'integracao',
     'bootstrap5',
+    'reports',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

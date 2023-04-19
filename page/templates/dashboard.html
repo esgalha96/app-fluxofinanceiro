@@ -12,6 +12,8 @@
     RenderizarGraficoSaidas('{% url "dados_dashboard_saidas" %}')
     RenderizarGraficoEntradas('{% url "dados_dashboard_entradas" %}')
     RenderizarGraficoFluxoCaixa('{% url "dados_dashboard_fluxo_caixa" %}')
+    RenderizarGraficoEntradasCategoria('{% url "dados_dashboard_entradas_categoria" %}')
+    RenderizarGraficoSaidasCategoria('{% url "dados_dashboard_saidas_categoria" %}')
   }
 
 
@@ -39,5 +41,15 @@
     <canvas id="GraficoEntradas"></canvas>
   </div>
 </div>
-
+<div class="row" style="text-align: center;">
+  
+  <div class="col-lg-6 col-md-6 col-sm-12" >
+    <label><b>Saídas por Categoria</b></label>
+    <canvas id="GraficoSaidasCategoria"></canvas>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-12" >
+    <label><b>Entradas por Categoria</b></label>
+    <canvas id="GraficoEntradasCategoria"></canvas>
+  </div>
+</div>
 {% endblock content %}

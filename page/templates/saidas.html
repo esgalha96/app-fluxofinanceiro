@@ -11,7 +11,14 @@
 
 {% block content %}
 
-<h2>Saídas</h2>
+<div class="row">
+    <div class="col-3">
+        <h2>Saídas</h2>
+    </div>
+    <div class="col-3">
+        
+    </div>
+</div>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -43,6 +50,7 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
         <a class="btn btn-primary" href="{% url 'saidas_add' %}" role="button">Adicionar</a>
+        <a class="btn btn-warning" href="{% url 'report_saidas' %}" role="button">Imprimir Relatório</a>
     </div>
 </div>
 

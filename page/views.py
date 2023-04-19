@@ -85,7 +85,7 @@ def categorias_add(request):
 def entradas(request):
  
     usuario_logado = request.user
-    entradas_usuario = Entradas.objects.filter(usuario=usuario_logado)
+    entradas_usuario = Entradas.objects.filter(usuario=usuario_logado)[:15]
 
     context={
         "usuario_logado": usuario_logado,
@@ -174,7 +174,7 @@ def entradas_add(request):
 def saidas(request):
 
     usuario_logado = request.user
-    saidas_usuario = Saidas.objects.filter(usuario=usuario_logado)
+    saidas_usuario = Saidas.objects.filter(usuario=usuario_logado)[:15]
 
     context={
         "usuario_logado": usuario_logado,
@@ -417,3 +417,42 @@ def dados_dashboard_fluxo_caixa(request):
     }
     return JsonResponse(dados)
 
+def dados_dashboard_saidas_categoria(request):
+
+    usuario_logado = request.user
+    saidas_usuario = Saidas.objects.filter(usuario=usuario_logado)
+
+    labels = []
+    valores = {'saidas':[]}
+
+    queryset = saidas_usuario.values('categoria').annotate(total=Sum('valor'))
+
+    for data in queryset:
+        labels.append(Categoria.objects.filter(id=data['categoria']).first().categoria)
+        valores['saidas'].append(data['total'])
+
+    dados = {
+        'labels': labels,
+        'valores': valores
+    }
+    return JsonResponse(dados)
+
+def dados_dashboard_entradas_categoria(request):
+
+    usuario_logado = request.user
+    entradas_usuario = Entradas.objects.filter(usuario=usuario_logado)
+
+    labels = []
+    valores = {'entradas':[]}
+
+    queryset = entradas_usuario.values('categoria').annotate(total=Sum('valor'))
+
+    for data in queryset:
+        labels.append(Categoria.objects.filter(id=data['categoria']).first().categoria)
+        valores['entradas'].append(data['total'])
+
+    dados = {
+        'labels': labels,
+        'valores': valores
+    }
+    return JsonResponse(dados)
